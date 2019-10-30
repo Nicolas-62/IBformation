@@ -22,6 +22,7 @@ public class FileTest {
 	}
 	
 	public static void afficherUnFichier(File fichier) {
+		
 		tailleTotal+=fichier.length();
 		System.out.println(String.format("%5s %5s %5s \t %-20s %-20s", "r","w","x","taille en octet","nom"));
 		System.out.println(
