@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.jdbc.dao.IBjavaDAO.MaConnexion;
 import com.jdbc.dao.IBjavaDAO.pojo.Eleve;
 
 public class EleveDAO extends DAO<Eleve> {
@@ -79,6 +80,10 @@ public class EleveDAO extends DAO<Eleve> {
 					.executeQuery("SELECT * FROM eleve WHERE elv_id = " + id);
 			if (result.first())
 				eleve = new Eleve(id, result.getString("elv_nom"), result.getString("elv_prenom"));
+			// récupération classe de l'élève
+			ClasseDAO classe = new ClasseDAO(MaConnexion.getConnection());			
+			eleve.setClasse(classe.find(eleve.getClasse_id()));
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

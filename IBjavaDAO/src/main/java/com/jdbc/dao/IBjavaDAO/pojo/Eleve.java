@@ -9,6 +9,8 @@ public class Eleve {
 	private String prenom = "";
 	
 	private int classe_id=0;
+	
+	private Classe classe;
 
 	public Eleve(int id, String nom, String prenom) {
 		this.id = id;
@@ -56,5 +58,11 @@ public class Eleve {
 	}
 	public void setClasse_id(int classe_id) {
 		this.classe_id = classe_id;
+	}
+	public Classe getClasse() {
+		return classe;
+	}
+	public void setClasse(Classe classe) {
+		this.classe = classe;
 	}
 }
